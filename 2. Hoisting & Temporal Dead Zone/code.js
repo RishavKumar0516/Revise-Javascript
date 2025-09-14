@@ -98,9 +98,28 @@ test();
 
 
 function sayHello() {
-  console.log("Hello");
+  console.log("Hello");  
 }
 var sayHello;  
 
 sayHello();
 
+// Step 1: Hoisting
+
+// When JavaScript parses this:
+
+// Function declarations are hoisted with their full body.
+
+// Variable declarations (var sayHello;) are also hoisted, but only the declaration, not the assignment.
+
+// So after hoisting, the engine “sees” it like this:
+
+
+// Step 2: Execution phase
+
+// The function declaration is created first → sayHello now points to the function.
+
+// The var sayHello; is just a declaration. Since sayHello is already defined as a function, the var line doesn’t override it or reset it to undefined.
+// (If it had an assignment like var sayHello = 42;, that would overwrite the function.)
+
+// So effectively the code running is:

@@ -29,6 +29,22 @@ console.log(a);     //10
 // Question 3
 function test() {
   console.log(a);   //undefined  - variable a is initialized using var keyword, so it gets hoisted and initialized with undefined
+
+  // in code execution phase when it sees the variable, it first check inside the lexical enviroment,
+  // lexical enviroment is the enviroment where code is written or physically present.
+  // so it this case a is used inside the test function so it will first check inside the test function, and found a variable with name a is alrady present inside the lexical enviroment of function test, so it will print the value of variable a which is undefined
+
+//   When JavaScript tries to access a variable:
+
+// It first looks inside the current lexical environment.
+
+// If not found → goes to the outer lexical environment.
+
+// Continues until it reaches the global scope.
+
+// If still not found → ReferenceError.
+
+  // lexical enviroment = local enviroment + reference to lexical enviroment of parent.
   if (true) {
     var a = 5;  // here we have defined variable a using var inside the block, but var has functional scope so it can be accessed anywhere inside the function    
   }
@@ -52,7 +68,7 @@ fn();
 
 // Question 5
 
-// when you decleare a variable using var keyword, you can redeclare it but it will refrence to the same memory location
+// when you decleare a variable using var keyword in same scope, you can redeclare it but it will refrence to the same memory location when used in the same scope
 // EX - var b = 50;
 //      var b = 100;
 
