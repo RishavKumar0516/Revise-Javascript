@@ -143,3 +143,82 @@ const onceFunc = once(function (a, b) {
 console.log(onceFunc(4, 5));
 console.log(onceFunc(7, 5));
 console.log(onceFunc(8, 5));
+
+
+// revision for function that should call only once
+
+
+
+// Implement the timer
+function timer () {
+    for(let i = 1; i <= 4; i++) {
+        setTimeout(()=>{
+            console.log(i);
+        }, 1000 * i)
+    }
+}
+
+function timer2 () {
+    for(var i = 1; i <= 4; i++) {
+         function log(i) {
+            setTimeout(()=>{
+                console.log(i);
+            }, 1000 * i);
+         }
+         log(i);
+    }
+}
+
+timer2();
+
+// timer();
+
+// Create a bankAccount closure with deposit, withdraw, and getBalance
+
+function bankAccount() {
+    let balance = 0;
+
+    function deposite(amount) {
+        balance += amount;
+    }
+
+    function withdraw (amount) {
+       balance -= amount;
+    }
+
+    function getBalance() {
+        return balance;
+    }
+
+    return {
+        deposite,
+        withdraw,
+        getBalance
+    }
+}
+
+const { deposite, withdraw, getBalance } = bankAccount();
+
+deposite(100);
+withdraw(50);
+console.log(getBalance());
+
+
+// build your own once function 
+// this is actually a higher order function that takes the function as an argument and returns a new function with extra functionality.
+function once2(callback) {
+   return function (...args) {
+    console.log("args", args);
+    const result = callback(...args);
+    return result;
+   }
+}
+
+const onceFunc2 = once2(function (a, b) {
+    console.log("a", a, "b", b);
+    return a + b;
+})
+
+console.log(onceFunc2(4, 5));
+console.log(onceFunc2(7, 5));
+console.log(onceFunc2(8, 5));
