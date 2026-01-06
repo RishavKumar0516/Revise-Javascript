@@ -198,6 +198,8 @@ rootEle1.addEventListener("click", () => {
 
 // but in above example we have defined method inside the first name object, but we can define the method seperately as well
 
+// jis object ke lia hum function ko call kerna chathe hai usse hume as first argument pass karna hai
+
 
 const name = {
     firstName: "Sachin",
@@ -248,6 +250,7 @@ printFullName2("Bhagalpur", "bihar");
 
 // const person = {name:"Abhishek Sharma"};
 
+// first take the function that you want to call, then pass the object, for which you want to call the function {jis object ke lia hume function call karna hai}
 // greet.call(person, "Punjab"); // Hello Rishav from DPunjab
 // greet.apply(person, ["Delhi"]); /// Hello Rishav from Delhi
 
